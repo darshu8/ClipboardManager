@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Clipboard Manager</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/jquery.min.js"></script>
+<script src="js/angular.min.js"> </script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/app.js"> </script>
+</head>
+<body ng-app="clipboardApplication" ng-controller="clipboardController">
+
+	<div class="container">
+		<h2>Clipboard Manager</h2>
+		<p>Enter the text to send it to server</p>
+		<form>
+			<div class="form-group">
+				<label for="comment">Text:</label>
+				<textarea ng-model="text" class="form-control" rows="5" id="msg"></textarea>
+			</div>
+			<div class="form-group">
+				<button type="button" ng-click="sendText(text)"
+					class="btn btn-primary">Copy to clipboard</button>
+			</div>
+			<div class="form-group">
+				<button type="button" ng-click="getText(text)"
+					class="btn btn-primary">Server Clipboard Text</button>
+			</div>
+		</form>
+		<div ng-if="error" id="errorMessage" class="alert alert-danger">
+			<strong>Something went wrong!!!</strong> .
+		</div>
+
+		<div ng-if="success" class="alert alert-success">
+			<strong>Done!</strong> Message Copied to server.
+		</div>
+	</div>
+
+</body>
+</html>
